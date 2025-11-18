@@ -13,7 +13,6 @@ const Connections=()=>{
     const fetchConnections=async()=>{
         try{
 const res=await axios.get(BASE_URL + '/user/connections',{withCredentials:true});
-        console.log(res?.data?.data)
                  dispatch(addConnection(res?.data?.data))
 
         }catch(err){
@@ -24,20 +23,19 @@ const res=await axios.get(BASE_URL + '/user/connections',{withCredentials:true})
    fetchConnections();
     },[])
 
-    console.log("Redux state:", connections);
+  
 
-
-    // if(!connections) return;
-    // if(connections.length===0) return <div>No users found</div>
+    if(!connections) return;
+    if(connections.length===0) return <div>No users found</div>
 
     return (
        <div className="text-center my-10">
   <div className="text-black text-3xl">Connections</div>
   { connections.map((connection) => {
-  const {firstName,lastName,gender,about,age,photoUrl}=connection
+  const {_id,firstName,lastName,gender,about,age,photoUrl}=connection
 
  return ( 
- <div className=" flex m-4 p-4 rounded-lg bg-base-200 w-1/2 mx-auto">
+ <div key={_id} className=" flex m-4 p-4 rounded-lg bg-base-200 w-1/2 mx-auto">
     <div>    <img alt="photo" src={photoUrl} className="w-50 h-40 rounded-full"/>
 </div>
     <div className="text-left mx-4"><h2 className="font-bold text-xl">{firstName + " " + lastName}</h2>
