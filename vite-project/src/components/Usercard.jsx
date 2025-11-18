@@ -1,7 +1,7 @@
 
 
 const Usercard=({user})=>{
-console.log(user)
+
 const {firstName,lastName,age,gender,skills,about,photoUrl}=user;
     return (
         <div className="flex justify-center">
