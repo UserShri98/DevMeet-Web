@@ -35,10 +35,18 @@ const fetchUser=async()=>{
 
 
     return (
-        <div>
-      <Navbar/>
-      <Outlet/>
-      {/* <Footer/> */}
+        <div className="app-shell min-h-screen text-slate-100">
+      <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-indigo-700/10" />
+        <div className="pointer-events-none absolute inset-0 grid-accent opacity-30" />
+        <Navbar/>
+        <main className="relative z-10 mx-auto w-full max-w-6xl flex-1 px-4 pb-8 pt-10 md:px-10">
+          <Outlet/>
+        </main>
+        <div className="relative z-10 px-4 pb-10 md:px-10">
+          <Footer/>
+        </div>
+      </div>
         </div>
     )
 }

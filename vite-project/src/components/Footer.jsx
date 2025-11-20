@@ -3,51 +3,43 @@
 const Footer=()=>{
 
     return (
+        <footer className="glass-panel mx-auto mt-16 w-full max-w-6xl rounded-3xl border border-white/10 px-8 py-10 text-slate-100">
+      <div className="grid gap-8 md:grid-cols-4">
         <div>
-      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content grid-rows-2 p-10 ">
-  <nav>
-    <h6 className="footer-title">Services</h6>
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Legal</h6>
-    <a className="link link-hover">Terms of use</a>
-    <a className="link link-hover">Privacy policy</a>
-    <a className="link link-hover">Cookie policy</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Social</h6>
-    <a className="link link-hover">Twitter</a>
-    <a className="link link-hover">Instagram</a>
-    <a className="link link-hover">Facebook</a>
-    <a className="link link-hover">GitHub</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Explore</h6>
-    <a className="link link-hover">Features</a>
-    <a className="link link-hover">Enterprise</a>
-    <a className="link link-hover">Security</a>
-    <a className="link link-hover">Pricing</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Apps</h6>
-    <a className="link link-hover">Mac</a>
-    <a className="link link-hover">Windows</a>
-    <a className="link link-hover">iPhone</a>
-    <a className="link link-hover">Android</a>
-  </nav>
-</footer>
+          <p className="text-xs uppercase tracking-[0.4em] text-slate-400">DevMeet</p>
+          <p className="mt-3 text-lg font-semibold">Elevating developer connections.</p>
+          <p className="mt-2 text-sm text-slate-300">Crafted for engineers, designers, and founders looking to build better, faster.</p>
         </div>
+        <div>
+          <h6 className="text-sm uppercase tracking-[0.4em] text-slate-400">Product</h6>
+          <div className="mt-3 space-y-2 text-slate-300">
+            <a className="block hover:text-white">Features</a>
+            <a className="block hover:text-white">Enterprise</a>
+            <a className="block hover:text-white">Security</a>
+            <a className="block hover:text-white">Pricing</a>
+          </div>
+        </div>
+        <div>
+          <h6 className="text-sm uppercase tracking-[0.4em] text-slate-400">Company</h6>
+          <div className="mt-3 space-y-2 text-slate-300">
+            <a className="block hover:text-white">About</a>
+            <a className="block hover:text-white">Careers</a>
+            <a className="block hover:text-white">Contact</a>
+            <a className="block hover:text-white">Press</a>
+          </div>
+        </div>
+        <div>
+          <h6 className="text-sm uppercase tracking-[0.4em] text-slate-400">Connect</h6>
+          <div className="mt-3 space-y-2 text-slate-300">
+            <a className="block hover:text-white">Twitter</a>
+            <a className="block hover:text-white">Instagram</a>
+            <a className="block hover:text-white">LinkedIn</a>
+            <a className="block hover:text-white">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <p className="mt-8 text-center text-xs uppercase tracking-[0.4em] text-slate-500">© {new Date().getFullYear()} DevMeet — Crafted for builders.</p>
+        </footer>
     )
 }
 

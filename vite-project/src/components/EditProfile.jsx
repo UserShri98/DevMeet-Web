@@ -46,62 +46,82 @@ console.log(res.data.data)
     
 
     return (
-        <div className="flex justify-center my-10">
-        <div className='flex justify-center mx-10'>
-      <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-  <legend className="fieldset-legend">Edit Profile</legend>
+        <section className="my-12 space-y-10">
+        <div className="grid gap-10 lg:grid-cols-2">
+        <div className='rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur'>
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.4em] text-slate-400">Profile</p>
+          <h3 className="text-3xl font-semibold text-white">Edit your details</h3>
+        </div>
+        <span className="rounded-full bg-emerald-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.4em] text-emerald-300">Live</span>
+      </div>
 
-  <label className="label">First Name</label>
-  <input 
+  <div className="mt-8 space-y-5">
+  <div>
+    <label className="text-sm uppercase tracking-[0.4em] text-slate-400">First Name</label>
+    <input 
   type="text" 
   value={firstName}
   onChange={(e)=>setFirstname(e.target.value)}
-  className="input" 
+  className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-sky-400 focus:outline-none" 
   />
+  </div>
 
-  <label className="label">Last Name</label>
-  <input 
+  <div>
+    <label className="text-sm uppercase tracking-[0.4em] text-slate-400">Last Name</label>
+    <input 
   type="text"
   value={lastName}
   onChange={(e)=>setLastName(e.target.value)}
-   className="input" 
+   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-sky-400 focus:outline-none" 
    />
-     <label className="label">PhotoUrl</label>
-  <input 
+  </div>
+
+  <div>
+    <label className="text-sm uppercase tracking-[0.4em] text-slate-400">Photo Url</label>
+        <input 
   type="text"
   value={photoUrl}
   onChange={(e)=>setPhotoUrl(e.target.value)}
-   className="input" 
+   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-sky-400 focus:outline-none" 
    />
-     <label className="label">Gender</label>
+  </div>
 
-    <input 
+  <div className="grid gap-5 md:grid-cols-2">
+    <div>
+      <label className="text-sm uppercase tracking-[0.4em] text-slate-400">Gender</label>
+         <input 
   type="text"
   value={gender}
   onChange={(e)=>setGender(e.target.value)}
-   className="input" 
+   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-sky-400 focus:outline-none" 
    />
-     <label className="label">Age</label>
-
-    <input 
+    </div>
+    <div>
+      <label className="text-sm uppercase tracking-[0.4em] text-slate-400">Age</label>
+         <input 
   type="text"
   value={age}
   onChange={(e)=>setAge(e.target.value)}
-   className="input" 
+   className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-slate-500 focus:border-sky-400 focus:outline-none" 
    />
-   <p className="text-red-500">{error}</p>
+    </div>
+  </div>
+   <p className="text-sm text-rose-400">{error}</p>
 
-  <button className="btn btn-neutral mt-4" onClick={saveProfile}>Edit Profile</button>
-</fieldset>
-        </div>
+  <button className="btn action-primary mt-4 w-full rounded-2xl border-none px-6 py-3 text-base font-semibold" onClick={saveProfile}>Save profile</button>
+  </div>
+</div>
 
-        <Usercard user={{firstName,lastName,age,gender,photoUrl}}/>
+        <Usercard user={{firstName,lastName,age,gender,photoUrl,skills:user?.skills}}/>
       {showToast &&  <div className="toast toast-top toast-center font-blue">
   <div className="alert alert-success">
     <span>Profile saved succesfullly</span>
   </div>
 </div>}
         </div>
+        </section>
     )
 }
 
