@@ -29,13 +29,14 @@ const EditProfile=({user})=>{
      try{
         setError("")
 const res=await axios.patch(BASE_URL + "/profile/edit",{firstName,lastName,gender,photoUrl,age},{withCredentials:true});
+console.log(res.data.data)
     dispatch(addUser(res?.data?.data));
     setShowToast(true);
     setTimeout(()=>{
   setShowToast(false)
     },3000)
      }catch(err){ 
-  setError(err.response.data)
+  setError(err.response?.data?.message || "Failed to update profile")
      }
     
    }
@@ -83,7 +84,7 @@ const res=await axios.patch(BASE_URL + "/profile/edit",{firstName,lastName,gende
      <label className="label">Age</label>
 
     <input 
-  type="number"
+  type="text"
   value={age}
   onChange={(e)=>setAge(e.target.value)}
    className="input" 

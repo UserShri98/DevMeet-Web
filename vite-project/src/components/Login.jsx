@@ -9,9 +9,12 @@ import { BASE_URL } from "../utils/constants";
 
 const Login=()=>{
 
-    const [email,setEmail]=useState("jaggu@gmail.com");
-    const [password,setPassword]=useState("Jaggu@123");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const [firstName,setFirstName]=useState("");
+    const [lastName,setLastName]=useState("")
     const [error,setError]=useState("")
+    const [isLoggedIn,setIsLogged]=useState(true)
 
     const dispatch=useDispatch();
     const navigate=useNavigate();
@@ -38,18 +41,42 @@ const res=await axios.post( BASE_URL + '/login',{
 
     }
 
+    const handleSignup=async()=>{
+      const res=await axios.post(BASE_URL+'/signup',{firstName,lastName,email,password},{withCredentials:true});
+       dispatch(addUser(res.data.data))
+        navigate('/profile')
+    }
+
     return (
         <div className='flex justify-center'>
       <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-  <legend className="fieldset-legend">Login</legend>
+  <legend className="fieldset-legend">{isLoggedIn?"Login":"Sign up"}</legend>
 
+{ !isLoggedIn && 
+ <>
+  <label className="label">First Name</label>
+  <input 
+  type="text" 
+  value={firstName}
+  onChange={(e)=>setFirstName(e.target.value)}
+  className="input" 
+  />
+
+ <label className="label">Last Name</label>
+  <input 
+  type="text" 
+  value={lastName}
+  onChange={(e)=>setLastName(e.target.value)}
+  className="input" 
+  />
+ </>
+}
   <label className="label">Email</label>
   <input 
   type="email" 
   value={email}
   onChange={(e)=>setEmail(e.target.value)}
   className="input" 
-  placeholder="Email" 
   />
 
   <label className="label">Password</label>
@@ -58,10 +85,13 @@ const res=await axios.post( BASE_URL + '/login',{
   value={password}
   onChange={(e)=>setPassword(e.target.value)}
    className="input" 
-   placeholder="Password" />
+    />
   <p className="text-red-500">{error}</p>
-  <button className="btn btn-neutral mt-4" onClick={handleLogin}>Login</button>
+  <button className="btn btn-neutral mt-4" onClick={isLoggedIn?handleLogin:handleSignup}>{isLoggedIn?"Login" : "Sign up"}</button>
+     <p className="m-auto cursor-pointer"  onClick={()=>setIsLogged(value=>!value)}>{isLoggedIn?"New user?Sign up to continue":"Existing User?Login to continue"}</p>
+
 </fieldset>
+
         </div>
     )
 }

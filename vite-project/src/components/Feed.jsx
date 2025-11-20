@@ -31,6 +31,10 @@ const res=await axios.get(BASE_URL + '/feed',{
    userFeed()
    },[])
 
+   if(!feed) return;
+
+   if(feed.length<=0) return <div className="flex justify-center">No users found</div>
+
     return (
     
       feed && (
