@@ -31,7 +31,7 @@ const res=await axios.get(BASE_URL + '/feed',{
  },[feed,dispatch])
    useEffect(()=>{
    userFeed()
-   },[userFeed])
+   },[userFeed]);
 
    useEffect(()=>{
     if(feed?.length>0){
@@ -102,7 +102,7 @@ const res=await axios.get(BASE_URL + '/feed',{
       <section className="flex min-h-[calc(100vh-200px)] flex-col items-center gap-8">
         <div className="text-center space-y-3 px-4">
           <p className="text-xs uppercase tracking-[0.6em] text-slate-400">DevMeet swipe</p>
-          <h1 className="text-3xl font-semibold text-white md:text-5xl">Discover one builder at a time</h1>
+          <h1 className="text-3xl font-semibold text-white md:text-5xl">Find your connections</h1>
           <p className="text-sm text-slate-300 md:text-base">Swipe on the card or tap the buttons below to skip or connect. Queue length: {feed.length}</p>
         </div>
 
